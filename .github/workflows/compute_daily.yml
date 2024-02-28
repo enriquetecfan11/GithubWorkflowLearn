@@ -19,16 +19,14 @@ jobs:
           python-version: '3.10' # install the python version needed
         
       - name: install packages
-        run: pip install requests pandas BeautifulSoup4
+        run: |
+        python -m pip install --upgrade pip
+        pip install requests pandas BeautifulSoup4
 
       - name: execute compute_daily script
         run: python ${GITHUB_WORKSPACE}/scripts/metrostatus.py
       
-      - uses: actions/checkout@v3
-      - name: Commit report
-        run: |
-          git config --global user.name 'enriquetecfan11'
-          git config --global user.email 'enriquetecfan11@sers.noreply.github.com'
-          git add -A
-          git commit -am "Add report.txt file"
-          git push origin HEAD:${GITHUB_REF}
+      - name: Commit and push changes
+      - uses: EndBug/add-and-commit@v9
+        with:
+          default_author: github-actions[bot]@users.noreply.github.com
