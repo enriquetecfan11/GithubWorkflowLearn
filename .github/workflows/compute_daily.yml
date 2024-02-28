@@ -19,16 +19,7 @@ jobs:
           python-version: '3.10' # install the python version needed
         
       - name: install packages
-        run: pip install requests pandas DateTime
+        run: pip install requests pandas
 
       - name: execute compute_daily script
-        run: python ${GITHUB_WORKSPACE}/scripts/getData.py
-
-      - name: Commit structure to git repo
-        uses: EndBug/add-and-commit@v9
-        with:
-          message: Añadir CSV de datos
-          author_name: enriquetecfan11
-          committer_name: enriquetecfan11
-          commit: --signoff
-
+        run: python ${GITHUB_WORKSPACE}/scripts/metrostatus.py
