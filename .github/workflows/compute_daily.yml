@@ -24,10 +24,12 @@ jobs:
       - name: execute compute_daily script
         run: python ${GITHUB_WORKSPACE}/scripts/metrostatus.py
       
-      - name: Commit files
+      - uses: actions/checkout@v3
+      - name: Create a report file
+        run: date +%s > report.txt
+      - name: Commit report
         run: |
-          git config --local user.email "
-          git config --local user.name "GitHub Actions"
-          git add .
-          git commit -m "Add changes"
+          git config --global user.name 'enriquetecfan11'
+          git config --global user.email 'enriquetecfan11@sers.noreply.github.com'
+          git commit -am "Add report.txt file"
           git push
