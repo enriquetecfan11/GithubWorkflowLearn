@@ -1,0 +1,19 @@
+Estado de las líneas del metro de Madrid:
+1: Funcionamiento normal
+2: Funcionamiento normal
+3: Funcionamiento normal
+4: Funcionamiento normal
+5: Funcionamiento normal
+6: Funcionamiento normal
+7: Servicio interrumpido
+8: Funcionamiento normal
+9: Funcionamiento normal
+10: Funcionamiento normal
+11: Funcionamiento normal
+12: Funcionamiento normal
+Ramal: Funcionamiento normal
+Metro ligero 1: Funcionamiento normal
+Metro ligero 2: Funcionamiento normal
+Metro ligero 3: Funcionamiento normal
+
+Fecha y hora de la actualización: 2024-02-28 11:18:13
