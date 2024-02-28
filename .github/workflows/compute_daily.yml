@@ -26,6 +26,11 @@ jobs:
         run: python ${GITHUB_WORKSPACE}/scripts/metrostatus.py
       
       - name: Commit and push changes
-      - uses: EndBug/add-and-commit@v9
+      - uses: EndBug/add-and-commit@v7
         with:
-          default_author: github-actions[bot]@users.noreply.github.com
+          author_name: Enrique Rodriguez
+          author_email: enriquemondejar15@gmail.com
+          message: "Update all"
+          add: all
+          force: true
+          push: true
