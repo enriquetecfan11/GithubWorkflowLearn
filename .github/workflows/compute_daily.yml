@@ -31,4 +31,4 @@ jobs:
           git config --global user.email 'enriquetecfan11@sers.noreply.github.com'
           git add -A
           git commit -am "Add report.txt file"
-          git push
+          git push origin HEAD:${GITHUB_REF}
