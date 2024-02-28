@@ -1,5 +1,7 @@
 import requests
 from bs4 import BeautifulSoup
+from datetime import datetime
+import os
 
 # Function to scrape the Metro Madrid "La red en tiempo real" status
 def scrape_metro_status():
@@ -62,8 +64,23 @@ def scrape_metro_status():
     for line, status in line_statuses.items():
         print(f'{line}: {status}')
     
-    # Return the dictionary containing the statuses
-    return line_statuses
+    # Verificar si la carpeta de salida existe, si no, crearla
+    output_folder = '../output'
+    if not os.path.exists(output_folder):
+        os.makedirs(output_folder)
+    
+    # Guardar el estado en un archivo de texto
+    file_path = os.path.join(output_folder, f'metro_status_{datetime.now().strftime("%Y-%m-%d_%H-%M-%S")}.txt')
+    with open(file_path, 'w') as file:
+        
+        file.write("Estado de las líneas del metro de Madrid:\n")
+        
+        for line, status in line_statuses.items():
+            file.write(f'{line}: {status}\n')
+        
+        file.write(f'\nFecha y hora de la actualización: {datetime.now().strftime("%Y-%m-%d %H:%M:%S")}')
 
-if __name__ == '__main__':
+    print(f'El estado del metro se ha guardado en el archivo: {file_path}')
+
+if __name__ == "__main__":
     scrape_metro_status()
