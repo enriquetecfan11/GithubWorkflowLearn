@@ -23,3 +23,11 @@ jobs:
 
       - name: execute compute_daily script
         run: python ${GITHUB_WORKSPACE}/scripts/metrostatus.py
+      
+      - name: Commit files
+        run: |
+          git config --local user.email "
+          git config --local user.name "GitHub Actions"
+          git add .
+          git commit -m "Add changes"
+          git push
