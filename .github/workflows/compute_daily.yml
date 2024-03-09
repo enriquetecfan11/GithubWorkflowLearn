@@ -36,4 +36,4 @@ jobs:
           git config --global user.name 'enriquetecfan11'
           git config --global user.email 'enriquemondejar15@gmail.com'
           git commit -m "Update daily status"
-          git push https://enriquetecfan11:${{ secrets.GITHUB_TOKEN }}@github.com/enriquetecfan11/GithubWorkflowLearn.git
+          git push https://enriquetecfan11:${{ secrets.PAT }}@github.com/tuusuario/turepositorio.git
