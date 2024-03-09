@@ -64,23 +64,14 @@ def scrape_metro_status():
     for line, status in line_statuses.items():
         print(f'{line}: {status}')
     
-    # Verificar si la carpeta de salida existe, si no, crearla
-    output_folder = '../output'
-    if not os.path.exists(output_folder):
-        os.makedirs(output_folder)
-    
-    # Guardar el estado en un archivo de texto
-    file_path = os.path.join(output_folder, f'metro_status_{datetime.now().strftime("%Y-%m-%d_%H-%M-%S")}.txt')
-    with open(file_path, 'w') as file:
-        
+    # Guardar el estado en un archivo de texto en la misma carpeta del script
+    file_name = f'metro_status_{datetime.now().strftime("%Y-%m-%d_%H-%M-%S")}.txt'
+    with open(file_name, 'w') as file:
         file.write("Estado de las líneas del metro de Madrid:\n")
-        
         for line, status in line_statuses.items():
             file.write(f'{line}: {status}\n')
-        
         file.write(f'\nFecha y hora de la actualización: {datetime.now().strftime("%Y-%m-%d %H:%M:%S")}')
-
-    print(f'El estado del metro se ha guardado en el archivo: {file_path}')
+    print(f'El estado del metro se ha guardado en el archivo: {file_name}')
 
 if __name__ == "__main__":
     scrape_metro_status()
