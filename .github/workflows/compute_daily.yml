@@ -25,16 +25,11 @@ jobs:
 
       - name: execute compute_daily script
         run: python ${GITHUB_WORKSPACE}/scripts/metrostatus.py
-      
-      - name: setup git config
-        run: |
-          # setup the username and email. I tend to use 'GitHub Actions Bot' with no email by default
-          git config user.name "GitHub Actions Bot"
-          git config user.email "<>"
 
-      - name: commit
+      - name: commit and push changes
         run: |
-          # Stage the file, commit and push
+          git config --global user.name 'enriquetecfan11'
+          git config --global user.email 'enriquemondejar15@gmail.com'
           git add .
-          git commit -m "update metrostatus data"
-          git push origin master
+          git commit -m "Update daily status"
+          git push
